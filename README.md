@@ -6,6 +6,7 @@
 
 ### Tecnologias
 
+- Sass
 - Bootstrap
 - TypeScript 
 
