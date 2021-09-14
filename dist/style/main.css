@@ -1,0 +1,66 @@
+body {
+  background-color: var(--bs-light);
+}
+
+.bl-wrap {
+  position: relative;
+}
+.bl-header, .bl-main {
+  padding: 17px;
+}
+@media (min-width: 768px) {
+  .bl-header, .bl-main {
+    padding: 33px;
+  }
+}
+.bl-header {
+  color: var(--bs-white);
+  background-color: var(--bs-cyan);
+}
+.bl-flow.-fixed {
+  max-width: 1320px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.bl-main .bl-flow.-fixed {
+  margin-bottom: 75px;
+}
+
+.register .bc-heading, .list .bc-heading {
+  color: var(--bs-gray-400);
+}
+.headline .bc-heading {
+  padding: 0.25em;
+  font-weight: 700;
+  color: var(--bs-white);
+  color: var(--bs-green);
+  background-color: var(--bs-pink);
+  background-color: var(--bs-teal);
+  border-left: solid 9px var(--bs-green);
+}
+
+.featured {
+  display: grid;
+  grid-row-gap: 33px;
+}
+.register .featured__section.-btn {
+  text-align: right;
+}
+
+.table__head.-center {
+  text-align: center;
+}
+
+.register .btn {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .register .btn {
+    width: unset;
+  }
+}
+.list .btn {
+  width: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */

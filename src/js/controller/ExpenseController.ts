@@ -1,0 +1,28 @@
+import { ExpenseModel } from "../model/ExpenseModel.js"
+
+class ExpenseController {
+    private $category: HTMLInputElement
+    private $description: HTMLInputElement
+    private $currency: HTMLInputElement
+
+    constructor() {
+        this.$category = document.querySelector('#ipt-dp-category')
+        this.$description = document.querySelector('#ipt-dp-description')
+        this.$currency = document.querySelector('#ipt-dp-currency')
+    }
+
+    add(): void{
+        const expense = this.createExpense()
+        console.log(expense)
+    }
+
+    createExpense(): ExpenseModel{
+        const category = this.$category.value.toString()
+        const description = this.$description.value.toString()
+        const currency = Number.parseFloat(this.$currency.value.replace(/,/g, '.'))
+
+        return new ExpenseModel(category, description, currency)
+    }
+}
+
+export { ExpenseController }
