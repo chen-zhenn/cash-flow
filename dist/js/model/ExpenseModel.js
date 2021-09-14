@@ -6,6 +6,18 @@ class ExpenseModel {
         this._description = description;
         this._currency = currency;
     }
+    get id() {
+        return this._id;
+    }
+    get category() {
+        return this._category;
+    }
+    get description() {
+        return this._description;
+    }
+    get currency() {
+        return this._currency;
+    }
 }
 ExpenseModel.id = 0;
 export { ExpenseModel };

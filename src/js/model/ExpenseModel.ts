@@ -14,6 +14,22 @@ class ExpenseModel {
 
     }
 
+    get id(): number{
+        return this._id
+    }
+
+    get category(): string{
+        return this._category
+    }
+
+    get description(): string{
+        return this._description
+    }
+
+    get currency(): number{
+        return this._currency
+    }
+
 }
 
 export { ExpenseModel }
