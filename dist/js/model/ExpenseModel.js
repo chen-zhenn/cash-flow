@@ -18,6 +18,9 @@ class ExpenseModel {
     get currency() {
         return this._currency;
     }
+    static create(category, description, currency) {
+        return new ExpenseModel(category, description, currency);
+    }
 }
 ExpenseModel.id = 0;
 export { ExpenseModel };

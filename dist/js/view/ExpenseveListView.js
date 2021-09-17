@@ -1,7 +1,5 @@
-class ExpenseListView {
-    constructor(element) {
-        this._element = document.querySelector(element);
-    }
+import { View } from "./View.js";
+class ExpenseListView extends View {
     template(data) {
         return `
         <table class="table  table-striped">
@@ -23,17 +21,14 @@ class ExpenseListView {
                         <td>${expense.description}</td>
                         <td>${expense.category}</td>
                         <td>${expense.currency}</td>
-                        <td><button type="button" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></button></td>
-                        <td><button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button></td>
+                        <td><a href="/#edit?id=${expense.id}"><button type="button" class="btn btn-warning" id="btn-dp-edit"><i class="bi bi-pencil-fill"></i></button></a></td>
+                        <td><a href="/#delete?id=${expense.id}"><button type="button" class="btn btn-danger" id="btn-dp-delete"><i class="bi bi-trash-fill"></i></button></a></td>
                     </tr>
                     `;
         }).join('')}
             </tbody>
         </table>
         `;
-    }
-    update(data) {
-        this._element.innerHTML = this.template(data);
     }
 }
 export { ExpenseListView };

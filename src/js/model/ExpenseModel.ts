@@ -14,20 +14,24 @@ class ExpenseModel {
 
     }
 
-    get id(): number{
+    get id(): number {
         return this._id
     }
 
-    get category(): string{
+    get category(): string { 
         return this._category
     }
 
-    get description(): string{
+    get description(): string {
         return this._description
     }
 
-    get currency(): number{
+    get currency(): number {
         return this._currency
+    }
+
+    public static create(category: string, description: string, currency: number): ExpenseModel {
+        return new ExpenseModel(category, description, currency)
     }
 
 }

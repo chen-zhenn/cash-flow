@@ -1,15 +1,10 @@
 import { ExpenseListModel } from "../model/ExpenseListModel.js"
-import { ExpenseModel } from "../model/ExpenseModel"
+import { View } from "./View.js"
 
-class ExpenseListView {
+class ExpenseListView extends View<ExpenseListModel> {
 
-    private _element: HTMLElement
 
-    constructor(element: string){
-        this._element = document.querySelector(element)
-    }
-
-    template(data: ExpenseListModel): string{
+    protected template(data: ExpenseListModel): string{
         return `
         <table class="table  table-striped">
             <thead>
@@ -30,8 +25,8 @@ class ExpenseListView {
                         <td>${expense.description}</td>
                         <td>${expense.category}</td>
                         <td>${expense.currency}</td>
-                        <td><button type="button" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></button></td>
-                        <td><button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button></td>
+                        <td><a href="/#edit?id=${expense.id}"><button type="button" class="btn btn-warning" id="btn-dp-edit"><i class="bi bi-pencil-fill"></i></button></a></td>
+                        <td><a href="/#delete?id=${expense.id}"><button type="button" class="btn btn-danger" id="btn-dp-delete"><i class="bi bi-trash-fill"></i></button></a></td>
                     </tr>
                     `
                 }).join('')}
@@ -40,9 +35,6 @@ class ExpenseListView {
         `
     }
 
-    update(data: ExpenseListModel): void{
-        this._element.innerHTML = this.template(data)
-    }
 }
 
 export { ExpenseListView }
