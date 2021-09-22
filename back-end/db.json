@@ -1,0 +1,7 @@
+{
+    "expenseList": [
+        { "id": 1, "description": "Limpeza interna e áreas comuns", "currency": 320.00 }, 
+        { "id": 2, "description": "Limpeza externa lixeira", "currency": 130.00 }, 
+        { "id": 3, "description": "Energia (Enel)", "currency": 73.15 }
+    ]
+}
