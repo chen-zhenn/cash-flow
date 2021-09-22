@@ -1,3 +1,12 @@
+front-end/node_modules/
+front-end/.node_modules/
+front-end/package-lock.json
+front-end/package-lock.json
+front-end/yarn.lock
+front-end/yarn-error.log
+front-end/tsconfig.json
+front-end/.eslintcache
+
 node_modules/
 .node_modules/
 built/*
@@ -97,5 +106,4 @@ tests/cases/user/webpack/webpack
 tests/cases/user/puppeteer/puppeteer
 tests/cases/user/axios-src/axios-src
 tests/cases/user/prettier/prettier
-.eslintcache
-tsconfig.json
+
