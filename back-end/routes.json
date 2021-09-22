@@ -1,0 +1,9 @@
+{
+    "/expense/list": "/expense",
+    "/expense/:id": "/expense/:id",
+    "/expense/id/:id": "/expense?id=:id",
+    "/expense/category/:category": "/expense?category=:category",
+    "/expense/currency/sort/lesser/:currency": "/expense?currency_lte=:currency",
+    "/expense/currency/sort/greater/:currency": "/expense?currency_gte=:currency",
+    "/expense/add": ""
+}
