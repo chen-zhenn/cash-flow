@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { ExpenseModel } from "../model/ExpenseModel.js";
 import { ExpenseListModel } from "../model/ExpenseListModel.js";
 import { ExpenseListView } from "../view/ExpenseveListView.js";
+import { ExpenseServices } from "../services/ExpenseServices.js";
 class ExpenseController {
     constructor() {
         this._expenseListModel = new ExpenseListModel();
@@ -22,8 +23,7 @@ class ExpenseController {
     }
     get() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield fetch('http://localhost:8080/expense/list')
-                .then(res => res.json())
+            yield ExpenseServices.list()
                 .then(list => list.forEach((expense) => this._expenseListModel.add(expense)))
                 .catch(error => console.log(error));
             this.updateView();

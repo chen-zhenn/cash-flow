@@ -2,13 +2,14 @@ import { ExpenseModel } from "../model/ExpenseModel.js"
 import { ExpenseListModel } from "../model/ExpenseListModel.js"
 import { ExpenseListView } from "../view/ExpenseveListView.js"
 import { ExpenseInterface} from '../interfaces/expenseInterface.js'
+import { ExpenseServices } from "../services/ExpenseServices.js"
 class ExpenseController {
     private $id: HTMLInputElement
     private $category: HTMLInputElement
     private $description: HTMLInputElement
     private $currency: HTMLInputElement
     private _expenseListModel = new ExpenseListModel()
-    private _expenseListView = new ExpenseListView('#expense-list');
+    private _expenseListView = new ExpenseListView('#expense-list') 
 
     constructor() {
         this.$id = document.querySelector('#ipt-dp-id') as HTMLInputElement
@@ -20,9 +21,8 @@ class ExpenseController {
 
     public async get(){
 
-        await fetch('http://localhost:8080/expense/list')
-            .then(res => res.json())
-            .then(list => list.forEach((expense: ExpenseModel) => this._expenseListModel.add(expense)))
+        await ExpenseServices.list()
+            .then(list =>  list.forEach((expense: ExpenseModel) => this._expenseListModel.add(expense)))
             .catch(error => console.log(error))
 
         this.updateView()
