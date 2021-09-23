@@ -18,6 +18,16 @@ class ExpenseController {
         this._expenseListView.update(this._expenseListModel)
     }
 
+    public async get(){
+
+        await fetch('http://localhost:8080/expense/list')
+            .then(res => res.json())
+            .then(list => list.forEach((expense: ExpenseModel) => this._expenseListModel.add(expense)))
+            .catch(error => console.log(error))
+
+        this.updateView()
+    }
+
     public create(): void {
         const expense = this.createExpense()
     
@@ -27,16 +37,16 @@ class ExpenseController {
     }
 
     public update(): void {
-        const expense = this.setUpdatedExpense()
-        const updated = this._expenseListModel.update(expense)
+        // const expense = this.setUpdatedExpense()
+        // const updated = this._expenseListModel.update(expense)
 
-        if(!updated){
-            throw new Error('Não foi possivel atualizar dados de despesa!')
-            return
-        }
+        // if(!updated){
+        //     throw new Error('Não foi possivel atualizar dados de despesa!')
+        //     return
+        // }
 
-        this.updateView()
-        this.resetForm()
+        // this.updateView()
+        // this.resetForm()
     }
 
     public delete(id: number): void {
@@ -56,11 +66,13 @@ class ExpenseController {
     }
 
     private createExpense(): ExpenseModel {
+        const expenseList = this._expenseListModel.list()
+        const id = expenseList.length ? expenseList[expenseList.length - 1]['id'] + 1 : 1  
         const category = this.$category.value.toString()
         const description = this.$description.value.toString()  
         const currency = this.setCurrencyFormat(this.$currency.value)
-    
-        return ExpenseModel.create(category, description, currency)
+
+        return ExpenseModel.create(id, category, description, currency)
     }
 
     private setUpdatedExpense(): ExpenseInterface {

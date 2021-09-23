@@ -1,7 +1,6 @@
 class ExpenseModel {
-    constructor(category, description, currency) {
-        ExpenseModel.id = ExpenseModel.id + 1;
-        this._id = ExpenseModel.id;
+    constructor(id, category, description, currency) {
+        this._id = id;
         this._category = category;
         this._description = description;
         this._currency = currency;
@@ -18,8 +17,8 @@ class ExpenseModel {
     get currency() {
         return this._currency;
     }
-    static create(category, description, currency) {
-        return new ExpenseModel(category, description, currency);
+    static create(id, category, description, currency) {
+        return new ExpenseModel(id, category, description, currency);
     }
 }
 ExpenseModel.id = 0;

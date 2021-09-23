@@ -22,5 +22,6 @@ addEventListener('hashchange', event => {
 
 addEventListener('load', event => {
     console.log('Pagina Carregada!')
+    expenseController.get()
 })
 

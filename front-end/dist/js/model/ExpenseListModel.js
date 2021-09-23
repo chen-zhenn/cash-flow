@@ -1,17 +1,9 @@
-import { ExpenseModel } from "./ExpenseModel.js";
 class ExpenseListModel {
     constructor() {
         this._expenseList = [];
     }
     add(expense) {
         this._expenseList.push(expense);
-    }
-    update(expense) {
-        const expenseIndex = this.searchByIndex(expense.id);
-        if (expenseIndex < 0)
-            return false;
-        this._expenseList[expenseIndex] = ExpenseModel.create(expense.category, expense.description, expense.currency);
-        return true;
     }
     delete(id) {
         const expenseIndex = this.searchByIndex(id);

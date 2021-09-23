@@ -7,13 +7,13 @@ class ExpenseListModel {
         this._expenseList.push(expense)
     }
 
-    public update(expense: ExpenseInterface) {
-        const expenseIndex = this.searchByIndex(expense.id)
+    // public update(expense: ExpenseInterface) {
+    //     const expenseIndex = this.searchByIndex(expense.id)
         
-        if(expenseIndex < 0) return false
-        this._expenseList[expenseIndex] = ExpenseModel.create(expense.category, expense.description, expense.currency)
-        return true
-    }
+    //     if(expenseIndex < 0) return false
+    //     this._expenseList[expenseIndex] = ExpenseModel.create(expense.category, expense.description, expense.currency)
+    //     return true
+    // }
 
     public delete(id: number): Array<ExpenseModel> {
         const expenseIndex = this.searchByIndex(id)

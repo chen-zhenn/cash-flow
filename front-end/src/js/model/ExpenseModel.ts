@@ -5,9 +5,10 @@ class ExpenseModel {
     private _currency;
     static id: number = 0;
 
-    constructor(category: string, description: string, currency: number) {
-        ExpenseModel.id = ExpenseModel.id + 1
-        this._id = ExpenseModel.id 
+    constructor(id: number, category: string, description: string, currency: number) {
+        // ExpenseModel.id = ExpenseModel.id + 1
+        // this._id = ExpenseModel.id
+        this._id = id 
         this._category = category;
         this._description = description;
         this._currency = currency;
@@ -30,8 +31,8 @@ class ExpenseModel {
         return this._currency
     }
 
-    public static create(category: string, description: string, currency: number): ExpenseModel {
-        return new ExpenseModel(category, description, currency)
+    public static create(id: number, category: string, description: string, currency: number): ExpenseModel {
+        return new ExpenseModel(id, category, description, currency)
     }
 
 }
