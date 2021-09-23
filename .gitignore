@@ -7,6 +7,11 @@ front-end/yarn-error.log
 front-end/tsconfig.json
 front-end/.eslintcache
 
+back-end/node_modules/
+back-end/.node_modules/
+back-end/package-lock.json
+back-end/package-lock.json
+
 node_modules/
 .node_modules/
 built/*

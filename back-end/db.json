@@ -1,0 +1,22 @@
+{
+  "expense": [
+    {
+      "id": 1,
+      "category": "manutencao",
+      "description": "Limpeza interna e áreas comuns",
+      "currency": 320
+    },
+    {
+      "id": 2,
+      "category": "manutencao",
+      "description": "Limpeza externa lixeira",
+      "currency": 130
+    },
+    {
+      "id": 3,
+      "category": "servico",
+      "description": "Energia",
+      "currency": 73.15
+    }
+  ]
+}
