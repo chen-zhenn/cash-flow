@@ -33,20 +33,21 @@ class ExpenseController {
     
         this._expenseListModel.add(expense)
         this.updateView()
-        this.resetForm()   
+        this.resetForm()
+        
     }
 
     public update(): void {
-        // const expense = this.setUpdatedExpense()
-        // const updated = this._expenseListModel.update(expense)
+        const expense = this.setUpdatedExpense()
+        const updated = this._expenseListModel.update(expense)
 
-        // if(!updated){
-        //     throw new Error('Não foi possivel atualizar dados de despesa!')
-        //     return
-        // }
+        if(!updated){
+            throw new Error('Não foi possivel atualizar dados de despesa!')
+            return
+        }
 
-        // this.updateView()
-        // this.resetForm()
+        this.updateView()
+        this.resetForm()
     }
 
     public delete(id: number): void {
@@ -86,6 +87,8 @@ class ExpenseController {
 
     private updateView(): void {
         this._expenseListView.update(this._expenseListModel)
+
+        console.log( this._expenseListModel.list() )
     }
 
     private setCurrencyFormat(value: string): number {

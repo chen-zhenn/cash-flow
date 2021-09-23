@@ -36,6 +36,14 @@ class ExpenseController {
         this.resetForm();
     }
     update() {
+        const expense = this.setUpdatedExpense();
+        const updated = this._expenseListModel.update(expense);
+        if (!updated) {
+            throw new Error('Não foi possivel atualizar dados de despesa!');
+            return;
+        }
+        this.updateView();
+        this.resetForm();
     }
     delete(id) {
         this._expenseListModel.delete(id);
@@ -67,6 +75,7 @@ class ExpenseController {
     }
     updateView() {
         this._expenseListView.update(this._expenseListModel);
+        console.log(this._expenseListModel.list());
     }
     setCurrencyFormat(value) {
         return parseFloat(value.replace(/,/g, '.'));
