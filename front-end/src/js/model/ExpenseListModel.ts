@@ -11,7 +11,7 @@ class ExpenseListModel {
         const expenseIndex = this.searchByIndex(expense.id)
         
         if(expenseIndex < 0) return false
-        this._expenseList[expenseIndex] = ExpenseModel.create(this._expenseList[expenseIndex]['id'], expense.category, expense.description, expense.currency)
+        this._expenseList[expenseIndex] = expense
         return true
     }
 

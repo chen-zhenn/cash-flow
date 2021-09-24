@@ -30,25 +30,43 @@ class ExpenseController {
         });
     }
     create() {
-        const expense = this.createExpense();
-        this._expenseListModel.add(expense);
-        this.updateView();
-        this.resetForm();
+        return __awaiter(this, void 0, void 0, function* () {
+            yield ExpenseServices.add(this.createExpense())
+                .then((expense) => this._expenseListModel.add(expense))
+                .catch(error => console.log(error));
+            this.updateView();
+            this.resetForm();
+        });
     }
     update() {
-        const expense = this.setUpdatedExpense();
-        const updated = this._expenseListModel.update(expense);
-        if (!updated) {
-            throw new Error('Não foi possivel atualizar dados de despesa!');
-            return;
-        }
-        this.updateView();
-        this.resetForm();
+        return __awaiter(this, void 0, void 0, function* () {
+            yield ExpenseServices.update(this.setUpdatedExpense())
+                .then((expense) => {
+                const updated = this._expenseListModel.update(expense);
+                if (!updated) {
+                    throw new Error('Não foi possivel atualizar dados de despesa!');
+                    return;
+                }
+            })
+                .catch(error => console.log(error));
+            this.updateView();
+            this.resetForm();
+        });
     }
     delete(id) {
-        this._expenseListModel.delete(id);
-        this.updateView();
-        this.resetForm();
+        return __awaiter(this, void 0, void 0, function* () {
+            yield ExpenseServices.delete(id)
+                .then((deleted) => {
+                if (!deleted) {
+                    throw new Error('Não foi possivel deletar dados de despesa!');
+                    return;
+                }
+                this._expenseListModel.delete(id);
+            })
+                .catch(error => console.log(error));
+            this.updateView();
+            this.resetForm();
+        });
     }
     edit(id, expense) {
         const { category, description, currency } = this._expenseListModel.getById(id);
@@ -75,7 +93,6 @@ class ExpenseController {
     }
     updateView() {
         this._expenseListView.update(this._expenseListModel);
-        console.log(this._expenseListModel.list());
     }
     setCurrencyFormat(value) {
         return parseFloat(value.replace(/,/g, '.'));

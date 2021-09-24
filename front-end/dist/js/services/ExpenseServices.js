@@ -16,5 +16,46 @@ class ExpenseServices {
                 .catch(error => error);
         });
     }
+    static add(expense) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield fetch('http://localhost:8080/expense/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(expense)
+            })
+                .then(res => res.json())
+                .then((expense) => expense)
+                .catch(error => error);
+        });
+    }
+    static update(expense) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id, category, description, currency } = expense;
+            return yield fetch(`http://localhost:8080/expense/update/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(expense)
+            })
+                .then(res => res.json())
+                .then((expense) => expense)
+                .catch(error => error);
+        });
+    }
+    static delete(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield fetch(`http://localhost:8080/expense/delete/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.status == 200)
+                .catch(error => error);
+        });
+    }
 }
 export { ExpenseServices };
