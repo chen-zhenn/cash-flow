@@ -53,6 +53,7 @@ class ExpenseController {
 
         this.updateView()
         this.resetForm()
+        this.navigate('/')
     }
 
     public async delete(id: number): Promise<void> {
@@ -69,6 +70,7 @@ class ExpenseController {
 
         this.updateView()
         this.resetForm()
+        this.navigate('/')
     }
 
     public edit(id: number, expense?: ExpenseInterface){ 
@@ -112,6 +114,10 @@ class ExpenseController {
         this.$description.value = ''
         this.$currency.value = ''
         this.$category.focus()
+    }
+
+    private navigate(url: string): void {
+        window.location.assign(url)
     }
 }
 
