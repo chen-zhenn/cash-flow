@@ -2,13 +2,14 @@ import { ExpenseModel } from "../model/ExpenseModel.js"
 import { ExpenseListModel } from "../model/ExpenseListModel.js"
 import { ExpenseListView } from "../view/ExpenseveListView.js"
 import { ExpenseInterface} from '../interfaces/expenseInterface.js'
+import { ExpenseServices } from "../services/ExpenseServices.js"
 class ExpenseController {
     private $id: HTMLInputElement
     private $category: HTMLInputElement
     private $description: HTMLInputElement
     private $currency: HTMLInputElement
     private _expenseListModel = new ExpenseListModel()
-    private _expenseListView = new ExpenseListView('#expense-list');
+    private _expenseListView = new ExpenseListView('#expense-list') 
 
     constructor() {
         this.$id = document.querySelector('#ipt-dp-id') as HTMLInputElement
@@ -18,29 +19,54 @@ class ExpenseController {
         this._expenseListView.update(this._expenseListModel)
     }
 
-    public create(): void {
-        const expense = this.createExpense()
-    
-        this._expenseListModel.add(expense)
+    public async get(): Promise<void> {
+
+        await ExpenseServices.list()
+            .then(list => list.forEach((expense: ExpenseModel) => this._expenseListModel.add(expense)))
+            .catch(error => console.log(error))
+
         this.updateView()
-        this.resetForm()   
     }
 
-    public update(): void {
-        const expense = this.setUpdatedExpense()
-        const updated = this._expenseListModel.update(expense)
+    public async create(): Promise<void> {
 
-        if(!updated){
-            throw new Error('Não foi possivel atualizar dados de despesa!')
-            return
-        }
+        await ExpenseServices.add(this.createExpense())
+            .then((expense: ExpenseModel) => this._expenseListModel.add(expense))
+            .catch(error => console.log(error))
+
+        this.updateView()
+        this.resetForm()
+        
+    }
+
+    public async update(): Promise<void> {
+
+        await ExpenseServices.update(this.setUpdatedExpense())
+            .then((expense: ExpenseModel) => {
+                const updated = this._expenseListModel.update(expense)
+                if(!updated){
+                    throw new Error('Não foi possivel atualizar dados de despesa!')
+                    return
+                }
+            })
+            .catch(error => console.log(error))
 
         this.updateView()
         this.resetForm()
     }
 
-    public delete(id: number): void {
-        this._expenseListModel.delete(id)
+    public async delete(id: number): Promise<void> {
+
+        await ExpenseServices.delete(id)
+            .then((deleted: boolean) => {
+                if(!deleted){
+                    throw new Error('Não foi possivel deletar dados de despesa!')
+                    return
+                }
+                this._expenseListModel.delete(id)
+            })
+            .catch(error => console.log(error))
+
         this.updateView()
         this.resetForm()
     }
@@ -56,11 +82,13 @@ class ExpenseController {
     }
 
     private createExpense(): ExpenseModel {
+        const expenseList = this._expenseListModel.list()
+        const id = expenseList.length ? expenseList[expenseList.length - 1]['id'] + 1 : 1  
         const category = this.$category.value.toString()
         const description = this.$description.value.toString()  
         const currency = this.setCurrencyFormat(this.$currency.value)
-    
-        return ExpenseModel.create(category, description, currency)
+
+        return ExpenseModel.create(id, category, description, currency)
     }
 
     private setUpdatedExpense(): ExpenseInterface {

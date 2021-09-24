@@ -1,4 +1,3 @@
-import { ExpenseModel } from "./ExpenseModel.js";
 class ExpenseListModel {
     constructor() {
         this._expenseList = [];
@@ -10,7 +9,7 @@ class ExpenseListModel {
         const expenseIndex = this.searchByIndex(expense.id);
         if (expenseIndex < 0)
             return false;
-        this._expenseList[expenseIndex] = ExpenseModel.create(expense.category, expense.description, expense.currency);
+        this._expenseList[expenseIndex] = expense;
         return true;
     }
     delete(id) {
