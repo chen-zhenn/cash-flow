@@ -53,7 +53,7 @@ class ExpenseController {
 
         this.updateView()
         this.resetForm()
-        this.navigate('/')
+        this.navigate('/#home')
     }
 
     public async delete(id: number): Promise<void> {
@@ -70,7 +70,7 @@ class ExpenseController {
 
         this.updateView()
         this.resetForm()
-        this.navigate('/')
+        this.navigate('/#home')
     }
 
     public edit(id: number, expense?: ExpenseInterface){ 
