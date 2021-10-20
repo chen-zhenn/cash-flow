@@ -18,6 +18,8 @@ Simples crud como base de estudo para se fazer uso TypeScript. Em suma, estudand
 
 ### 🚀 Instalando Cash Flow
 
+> Importante: Executar passos 2 e 4 em ambos os diretórios - back-end e front-end
+
 1. Primeiramente clone o repositório:
     ```
     git clone git@github.com:chen-zhenn/cash-flow.git
@@ -35,6 +37,4 @@ Simples crud como base de estudo para se fazer uso TypeScript. Em suma, estudand
     ```
     npm start
     ```
-
-> Importante: Executar passos 2 e 4 em ambos os diretórios - back-end e front-end
 
