@@ -1,6 +1,6 @@
 # Cash Flow
 
-<img src="screenshot-1.0.0.png">
+<img src="screenshot-1.2.0.gif">
 
 ### Sobre
  
@@ -17,6 +17,8 @@ Simples crud como base de estudo para se fazer uso TypeScript. Em suma, estudand
 - Ter Node instalado.
 
 ### 🚀 Instalando Cash Flow
+
+> Importante: Executar passos 2 e 4 em ambos os diretórios - back-end e front-end
 
 1. Primeiramente clone o repositório:
     ```
@@ -35,6 +37,4 @@ Simples crud como base de estudo para se fazer uso TypeScript. Em suma, estudand
     ```
     npm start
     ```
-
-> Importante: Executar passos 2 e 4 em ambos os diretórios - back-end e front-end
 
