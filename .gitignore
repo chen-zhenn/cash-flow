@@ -4,7 +4,7 @@ front-end/package-lock.json
 front-end/package-lock.json
 front-end/yarn.lock
 front-end/yarn-error.log
-front-end/tsconfig.json
+#front-end/tsconfig.json
 front-end/.eslintcache
 front-end/dist/js/
 front-end/dist/js/**/*
