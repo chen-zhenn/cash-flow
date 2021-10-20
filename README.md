@@ -1,18 +1,16 @@
 # Cash Flow
 
-<img src="src/assets/img/screenshot-layout.png">
+<img src="screenshot-1.0.0.png">
+
+### Sobre
  
-> Simples crud como base de estudo para se fazer uso TypeScript. Em suma, estudando TypeScript...
+Simples crud como base de estudo para se fazer uso TypeScript. Em suma, estudando TypeScript...
 
 ### Tecnologias
 
 - Sass
 - Bootstrap
 - TypeScript 
-
-## Iniciando
-
-Para rodar projeto localmente, siga instruções.
 
 ### 💻 Pré-requisitos
 
@@ -22,15 +20,21 @@ Para rodar projeto localmente, siga instruções.
 
 1. Primeiramente clone o repositório:
     ```
-    git clone https://github.com/chen-zhenn/cash-flow.git
+    git clone git@github.com:chen-zhenn/cash-flow.git
     ```
 
 2. Instalar dependências necessárias:
     ```
     npm install
     ```
-3. Rodar o projeto:
+
+3. Fazer um cópia do arquivo tsconfig.json.example que se está no diretório front-end renomeando o mesmo para tsconfig.json  
+<br />  
+
+4. Rodar o projeto:
     ```
     npm start
     ```
+
+> Importante: Executar passos 2 e 4 em ambos os diretórios - back-end e front-end
 

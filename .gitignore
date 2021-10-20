@@ -1,3 +1,21 @@
+front-end/node_modules/
+front-end/.node_modules/
+front-end/package-lock.json
+front-end/package-lock.json
+front-end/yarn.lock
+front-end/yarn-error.log
+front-end/tsconfig.json
+front-end/.eslintcache
+front-end/dist/js/
+front-end/dist/js/**/*
+front-end/dist/style/
+front-end/dist/style/**/*
+
+back-end/node_modules/
+back-end/.node_modules/
+back-end/package-lock.json
+back-end/package-lock.json
+
 node_modules/
 .node_modules/
 built/*
@@ -97,4 +115,4 @@ tests/cases/user/webpack/webpack
 tests/cases/user/puppeteer/puppeteer
 tests/cases/user/axios-src/axios-src
 tests/cases/user/prettier/prettier
-.eslintcache
+

@@ -1,0 +1,17 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "api": "json-server --watch --port 8080 --routes routes.json db.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
+}
