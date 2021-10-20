@@ -1,6 +1,6 @@
 # Cash Flow
 
-<img src="screenshot-1.0.0.png">
+<img src="screenshot-1.2.0.gif">
 
 ### Sobre
  
